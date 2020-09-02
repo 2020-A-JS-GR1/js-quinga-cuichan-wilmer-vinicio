@@ -1,0 +1,19 @@
+<!-- Property binding
+setear valores a propiedades de una etiqueta
+-->
+<img [src]="urlEjemploImagen " alt="">
+
+<!--interpolacion texto que se muesytra en la interface  -->
+
+<a [href]="linkTextoEjemplo">
+  <p>{{textoEjemplo}}</p>
+</a>
+
+
+<!--event binding -->
+
+<button
+(click)="ejemploFuncion()"
+(blur)="eventoObBlur()"
+>
+  {{textoEjemplo}}</button>
