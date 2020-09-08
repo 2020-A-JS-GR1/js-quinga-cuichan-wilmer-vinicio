@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-carta-pelicula',
@@ -16,8 +16,14 @@ export class CartaPeliculaComponent implements OnInit {
   @Input()
   nombreBoton: string;
 
+  @Output()
+  eventoDioClicEnBoton: EventEmitter<boolean> = new EventEmitter<any>();
+
+  @Output()
+  eventoDioClicEnImagen: EventEmitter<boolean> = new EventEmitter<any>();
+
   urlEjemploImagen = 'https://www.lavanguardia.com/r/GODO/LV/p6/WebSite/2019/12/20/Recortada/img_astrid_20191223-145256_imagenes_lv_terceros_combopelis19-k3S-U472367896624VND-992x558@LaVanguardia-Web.jpg';
-  linkTextoEjemplo = 'www.googlee.com';
+  linkTextoEjemplo = 'https://www.google.com';
   textoEjemplo= 'Vinicio';
 
   constructor() { }
@@ -34,4 +40,15 @@ export class CartaPeliculaComponent implements OnInit {
   {
     console.log('Blur');
   }
+
+  ejecutarEventoDioClic()
+  {
+    this.eventoDioClicEnBoton.emit(true);
+  }
+
+  ejecutarEventoDioClicImagen()
+  {
+    this.eventoDioClicEnImagen.emit(true);
+  }
+
 }
