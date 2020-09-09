@@ -5,7 +5,7 @@ import {HttpClient} from "@angular/common/http";
 
 export class UsuarioService
 {
-  url = 'http://localhost:1337/usuario';
+  url = 'http://localhost:1337';
   //Constructor en angular sirve para inyectar dependencias
   constructor(
     private readonly _httpClient: HttpClient //servicio
@@ -16,6 +16,15 @@ export class UsuarioService
 
   traerTodos(){
 
-    return this._httpClient.get(this.url + '/Usuario');
+    return this._httpClient.get(this.url + '/usuario');
   }
+
+  //Post /usaurio
+  crear(usuario){
+    return  this._httpClient.post(
+      this.url + '/usuario', //url
+      usuario
+    );
+  }
+
 }

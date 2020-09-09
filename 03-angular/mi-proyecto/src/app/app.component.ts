@@ -9,7 +9,11 @@ import {normalizeExtraEntryPoints} from "@angular-devkit/build-angular/src/angul
 })
 export class AppComponent {
   title = 'mi-proyecto';
+  habilitado = true;
 
+
+
+  arregloUsuarios = [];
   arregloPeliculas = [
       {
         id: 1,
@@ -35,10 +39,16 @@ export class AppComponent {
     ];
   arregloNumeros = [1,2,3];
 
+  arregloObservables = [];
   //inyectar dependencias
   constructor(
     private readonly _usuarioService: UsuarioService
   ) {
+  }
+
+  ngOnInit()
+  {
+    this.mesajeConsola(true);
   }
 
 
@@ -46,15 +56,37 @@ export class AppComponent {
   {
     console.log('llego el evento', objecto);
     const observableTraerTodos = this._usuarioService.traerTodos();
-    observableTraerTodos
+    const suscripcion = observableTraerTodos
       .subscribe(
-        (data)=>{ //then try
+        (data) => { //then try
+          this.arregloUsuarios = data as any[];
           console.log(data);
         },
-        (error)=>{
+        (error) => {
           console.log(error);
         }
       );
+    // this.arregloObservables.push(suscripcion);
+    // suscripcion.unsubscribe();
   }
 
+  crearUsuario()
+  {
+    const usuarioNuevo =
+      {
+        cedula: '1720787474',
+        nombre: 'Naruto',
+        apellido: 'Uzumaki'
+      };
+    const obsCrearUsuario = this._usuarioService.crear(usuarioNuevo);
+    obsCrearUsuario
+      .subscribe(
+        (datos) => {
+          console.log('Nuevo Usuario', datos);
+        },
+        (error) => {
+          console.log('Error', error);
+        }
+      );
+  }
 }
