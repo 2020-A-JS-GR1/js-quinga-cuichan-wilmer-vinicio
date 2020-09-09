@@ -1,11 +1,11 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-carta-pelicula',
   templateUrl: './carta-pelicula.component.html',
   styleUrls: ['./carta-pelicula.component.css']
 })
-export class CartaPeliculaComponent implements OnInit {
+export class CartaPeliculaComponent implements OnInit, OnDestroy {
 
   @Input()
   urlImagen: string;
@@ -26,9 +26,17 @@ export class CartaPeliculaComponent implements OnInit {
   linkTextoEjemplo = 'https://www.google.com';
   textoEjemplo= 'Vinicio';
 
-  constructor() { }
+  constructor() {
+    console.log('Constructor');
+
+  }
 
   ngOnInit(): void {
+    console.log('init');
+  }
+
+  ngOnDestroy(): void {
+    console.log('destry');
   }
 
   ejemploFuncion()
