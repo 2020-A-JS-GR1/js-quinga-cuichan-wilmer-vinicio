@@ -1,0 +1,26 @@
+<table>
+
+  <tr>
+    <th>Id</th>
+    <th>Nombre</th>
+    <th>Cedula</th>
+    <th>Accion</th>
+  </tr>
+
+  <tr *ngFor="let usuario of arregloUsuario">
+    <td>{{usuario.id}}</td>
+    <td>{{usuario.nombre}}</td>
+    <td>{{usuario.cedula}}</td>
+    <td>
+      <button (click)="irAEditarUsuario(usuario.id)">
+        editar</button>
+
+
+      <button (click)="eliminarUsuario(usuario.id)">
+        eliminar</button>
+    </td>
+
+
+
+  </tr>
+</table>

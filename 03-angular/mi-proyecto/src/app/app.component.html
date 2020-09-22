@@ -38,9 +38,9 @@
 <!--</app-carta-pelicula>-->
 
 
-<div *ngFor="let usuario of arregloUsuarios">
-  {{usuario.nombre}}
-</div>
+<!--<div *ngFor="let usuario of arregloUsuarios">-->
+<!--  {{usuario.nombre}}-->
+<!--</div>-->
 
 
 
@@ -54,6 +54,11 @@ ir inicio
   <li>
     <a [routerLink]="['login']">
       ir login
+    </a>
+  </li>
+  <li>
+    <a [routerLink]="['usuario']">
+      Usuarios
     </a>
   </li>
 
