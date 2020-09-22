@@ -9,6 +9,10 @@ import {UsuarioService} from "./Servicios/http/usuario.service";
 import { RutaInicioComponent } from './Rutas/ruta-inicio/ruta-inicio.component';
 import { RutaLoginComponent } from './Rutas/ruta-login/ruta-login.component';
 import { RutaDetalleUsuarioComponent } from './Rutas/ruta-detalle-usuario/ruta-detalle-usuario.component';
+import { RutasUsuarioComponent } from './Rutas/rutas-usuario/rutas-usuario.component';
+import { RutaListaUsuarioComponent } from './Rutas/ruta-lista-usuario/ruta-lista-usuario.component';
+import { RutaCrearUsuarioComponent } from './Rutas/ruta-crear-usuario/ruta-crear-usuario.component';
+import { RutaEditarUsuarioComponent } from './Rutas/ruta-editar-usuario/ruta-editar-usuario.component';
 
 @NgModule({
   declarations: [ //componentes de angular
@@ -16,7 +20,11 @@ import { RutaDetalleUsuarioComponent } from './Rutas/ruta-detalle-usuario/ruta-d
     CartaPeliculaComponent,
     RutaInicioComponent,
     RutaLoginComponent,
-    RutaDetalleUsuarioComponent
+    RutaDetalleUsuarioComponent,
+    RutasUsuarioComponent,
+    RutaListaUsuarioComponent,
+    RutaCrearUsuarioComponent,
+    RutaEditarUsuarioComponent
   ],
   imports: [ //modulos que se usan
     BrowserModule, //-> importa el NGFOR y el NGIF
