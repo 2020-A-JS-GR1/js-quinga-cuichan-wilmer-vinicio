@@ -1,0 +1,70 @@
+<form
+  #formularioUsuario="ngForm"
+  (ngSubmit)="crearUsuario(formularioUsuario)">
+
+  <div>
+    <label for="nombreId">Nombre</label>
+    <input id="nombreId"
+           type="text"
+           name="nombre"
+           [(ngModel)]="nombreModelo"
+           required
+           minlength="3"
+           #nombreCampo="ngModel">
+    <div *ngIf="nombreCampo.touched && nombreCampo.errors">
+      <p *ngIf="nombreCampo.errors.required">Error: Campo requerido</p>
+      <p *ngIf="nombreCampo.errors.minlength">Error: logitud minima 3</p>
+
+
+    </div>
+
+    <input type="number" step="0.1" min="0" max="2">
+    <!--  type= number  con min =0 y con max=10-->
+
+    <!--  email  -->
+    <!--    minlength="3"-->
+    <!--    maxlength="10"-->
+    <!--    pattern="[0-9]"-->
+  </div>
+  <div>
+    <label for="cedulaId">Cedula</label>
+    <input id="cedulaId"
+           type="text"
+           name="cedula"
+           [(ngModel)]="cedulaModelo"
+           required>
+  </div>
+
+  <div>
+    <label for="estadoCivilId">Estado civil</label>
+    <select name="estadoCivilId"
+            [(ngModel)]="estadoCivilModelo"
+            id="estadoCivilId">
+
+      <option value="Soltero">Soltero</option>
+      <option value="Casado">Casado</option>
+      <option value="Divoriciado">Divoriciado</option>
+      <option value="Viudo">Viudo</option>
+      <option value="Union Libre">Union Libre</option>
+    </select>
+  </div>
+
+  <button type="button" (click)="ayuda()">
+    Boton (ayuda)
+  </button>
+
+  <button type="submit" [disabled]="!formularioUsuario.form.valid">
+    Submit
+
+  </button>
+  <button>
+    Reset
+  </button>
+  <button type="reset">
+    reset
+  </button>
+
+  <button>
+    defecto (submit)
+  </button>
+</form>
