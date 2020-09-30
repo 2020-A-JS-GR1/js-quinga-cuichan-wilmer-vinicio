@@ -21,9 +21,9 @@ export class UsuarioService {
     return this._httpClient.get(this.url + '/usuario/' + idUsuario);
   }
 
-  traerTodos() {
+  traerTodos(consulta?: string) {
 
-    return this._httpClient.get(this.url + '/usuario');
+    return this._httpClient.get(this.url + '/usuario?' + consulta);
   }
 
 
@@ -33,6 +33,14 @@ export class UsuarioService {
       this.url + '/usuario', //url
       usuario
     );
+  }
+
+  editar(usuario, id) {
+    return this._httpClient.put(
+      this.url + '/usuario/' + id, //url
+      usuario
+    );
+
   }
 
   eliminar(idUsuario: number) {

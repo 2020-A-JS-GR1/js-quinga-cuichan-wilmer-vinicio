@@ -1,3 +1,7 @@
 <p>Ingresa datos del usuario</p>
-<app-formulario-usaurio></app-formulario-usaurio>
+
+
+<app-formulario-usaurio
+  (informacionValidada)="crearUsuario($event)"
+></app-formulario-usaurio>
 

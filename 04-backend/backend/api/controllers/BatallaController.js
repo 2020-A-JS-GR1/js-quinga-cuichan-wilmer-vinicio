@@ -8,10 +8,7 @@
 module.exports = {
   attribute: {
 
-  nombre:{
-    type: 'string',
-    required: true, // Por defecto es false
-  },
+
   },
 };
 

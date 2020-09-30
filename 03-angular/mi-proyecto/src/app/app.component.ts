@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {UsuarioService} from "./Servicios/http/usuario.service";
 import {normalizeExtraEntryPoints} from "@angular-devkit/build-angular/src/angular-cli-files/models/webpack-configs";
+import {AuthService} from "./Servicios/http/Auth/Auth.Service";
 
 @Component({
   selector: 'app-root',
@@ -12,16 +13,15 @@ export class AppComponent {
   habilitado = true;
 
 
-
   arregloUsuarios = [];
   arregloPeliculas = [
-      {
-        id: 1,
-        url: 'https://www.lavanguardia.com/r/GODO/LV/p6/WebSite/2019/12/20/Recortada/img_astrid_20191223-145256_imagenes_lv_terceros_combopelis19-k3S-U472367896624VND-992x558@LaVanguardia-Web.jpg',
-        descripcion: 'Varias peliculas',
-        nombrePelicula: 'Guason y varias peliculas'
+    {
+      id: 1,
+      url: 'https://www.lavanguardia.com/r/GODO/LV/p6/WebSite/2019/12/20/Recortada/img_astrid_20191223-145256_imagenes_lv_terceros_combopelis19-k3S-U472367896624VND-992x558@LaVanguardia-Web.jpg',
+      descripcion: 'Varias peliculas',
+      nombrePelicula: 'Guason y varias peliculas'
 
-      },
+    },
 
     {
       id: 2,
@@ -36,24 +36,27 @@ export class AppComponent {
       descripcion: 'peliculas de accion',
       nombrePelicula: 'Virus'
     }
-    ];
-  arregloNumeros = [1,2,3];
+  ];
+  arregloNumeros = [1, 2, 3];
 
   arregloObservables = [];
+
   //inyectar dependencias
   constructor(
-    private readonly _usuarioService: UsuarioService
+    private readonly _usuarioService: UsuarioService,
+    public readonly _authService: AuthService
   ) {
   }
 
-  ngOnInit()
-  {
+  ngOnInit() {
     this.mesajeConsola(true);
   }
 
 
-  mesajeConsola(objecto: boolean)
-  {
+  mesajeConsola(objecto
+                  :
+                  boolean
+  ) {
     console.log('llego el evento', objecto);
     const observableTraerTodos = this._usuarioService.traerTodos();
     const suscripcion = observableTraerTodos
@@ -70,8 +73,7 @@ export class AppComponent {
     // suscripcion.unsubscribe();
   }
 
-  crearUsuario()
-  {
+  crearUsuario() {
     const usuarioNuevo =
       {
         cedula: '1720787474',
